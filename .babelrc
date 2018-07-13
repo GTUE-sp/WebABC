@@ -1,0 +1,22 @@
+{
+    "presets": [
+        "@babel/preset-react",
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "chrome": 67
+                },
+                "useBuiltIns": "usage",
+                "modules": false,
+                "debug": true
+            }
+        ],
+        "@babel/preset-typescript"
+    ],
+    "plugins": [
+        "react-hot-loader/babel",
+        "@babel/proposal-class-properties",
+        "@babel/proposal-object-rest-spread"
+    ]
+}
