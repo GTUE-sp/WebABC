@@ -1,6 +1,5 @@
 {
     "presets": [
-        "@babel/preset-react",
         [
             "@babel/preset-env",
             {
@@ -12,12 +11,13 @@
                 "debug": true
             }
         ],
+        "@babel/preset-react",
         "@babel/preset-typescript"
     ],
     "plugins": [
-        ["import", { "libraryName": "antd", "style": "css" }],
         "react-hot-loader/babel",
         "@babel/proposal-class-properties",
-        "@babel/proposal-object-rest-spread"
+        "@babel/proposal-object-rest-spread",
+
     ]
 }
