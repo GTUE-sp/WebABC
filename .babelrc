@@ -15,6 +15,7 @@
         "@babel/preset-typescript"
     ],
     "plugins": [
+        ["import", { "libraryName": "antd", "style": "css" }],
         "react-hot-loader/babel",
         "@babel/proposal-class-properties",
         "@babel/proposal-object-rest-spread"
