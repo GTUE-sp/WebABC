@@ -18,7 +18,15 @@ export class AttendanceBook extends React.Component<{}, {}> {
       title: "名前",
       dataIndex: "name",
       fixed: "left",
-      width: 200
+      width: 200,
+      render: (text, recoed, index) => {
+        return (
+          <span>
+            {" "}
+            {recoed.key} {recoed.name}
+          </span>
+        );
+      }
     },
     {
       key: "period",
@@ -27,42 +35,98 @@ export class AttendanceBook extends React.Component<{}, {}> {
         {
           key: "period1",
           title: "1",
-          width: 100
+          render: () => {
+            return (
+              <p>
+                出欠
+                <input type="checkbox" />
+              </p>
+            );
+          }
         },
         {
           key: "period2",
           title: "2",
-          width: 100
+          render: () => {
+            return (
+              <p>
+                出欠
+                <input type="checkbox" />
+              </p>
+            );
+          }
         },
         {
           key: "period3",
           title: "3",
-          width: 100
+          render: () => {
+            return (
+              <p>
+                出欠
+                <input type="checkbox" />
+              </p>
+            );
+          }
         },
         {
           key: "period4",
           title: "4",
-          width: 100
+          render: () => {
+            return (
+              <p>
+                出欠
+                <input type="checkbox" />
+              </p>
+            );
+          }
         },
         {
           key: "period5",
           title: "5",
-          width: 50
+          render: () => {
+            return (
+              <p>
+                出欠
+                <input type="checkbox" />
+              </p>
+            );
+          }
         },
         {
           key: "period6",
           title: "6",
-          width: 100
+          render: () => {
+            return (
+              <p>
+                出欠
+                <input type="checkbox" />
+              </p>
+            );
+          }
         },
         {
           key: "period7",
           title: "7",
-          width: 100
+          render: () => {
+            return (
+              <p>
+                出欠
+                <input type="checkbox" />
+              </p>
+            );
+          }
         },
         {
           key: "period8",
           title: "8",
-          width: 100
+          render: () => {
+            return (
+              <p>
+                出欠
+                <input type="checkbox" />
+              </p>
+            );
+          }
         }
       ]
     }
