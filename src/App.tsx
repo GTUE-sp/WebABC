@@ -14,14 +14,16 @@ import { AttendanceBook } from "./AttendanceBook";
 export const App: React.SFC = () => {
   return (
     <div>
-      <AppBar position={"static"}>
+      <AppBar position={"sticky"}>
         <Toolbar>
           <Typography variant={"title"} color={"inherit"}>
             Web出席簿
           </Typography>
         </Toolbar>
       </AppBar>
-      <AttendanceBook />
+      <div>
+        <AttendanceBook />
+      </div>
     </div>
   );
 };
