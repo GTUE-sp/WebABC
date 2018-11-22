@@ -1,5 +1,4 @@
 {
     "files.trimFinalNewlines": true,
-    "editor.formatOnSave": true,
-    "eslint.autoFixOnSave": true
+    "editor.formatOnSave": true
 }
