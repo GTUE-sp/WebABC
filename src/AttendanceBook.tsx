@@ -7,6 +7,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
+import "./main.css";
 const styles = (theme: Theme) => {
   return createStyles({
     root: {
@@ -20,152 +21,129 @@ const styles = (theme: Theme) => {
       top: 0
     },
     table: {
-      border: 1
+      display: "block",
+      position: "relative"
     }
   });
 };
 
-interface Data {
+interface Student {
   id: number;
   name: string;
-  calories: number;
-  fat: number;
-  carbs: number;
-  protein: number;
+  status: number[];
 }
-let id = 0;
-function createData(name: string, calories: number, fat: number, carbs: number, protein: number): Data {
-  id += 1;
-  return { id, name, calories, fat, carbs, protein };
-}
-const data = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9)
-];
 
-type AttendanceBookProps = WithStyles<typeof styles>;
+interface Subject {
+  teacher: string;
+  name: string;
+}
+
+type AttendanceBookProps = {}; //WithStyles<typeof styles>;
 export class AttendanceBook extends React.Component<AttendanceBookProps, {}> {
+  private homeroomTeacher = "佐藤";
+  private subjects: Subject[] = [
+    {
+      teacher: "マルケス",
+      name: "英語"
+    },
+    {
+      teacher: "宮田",
+      name: "信号処理"
+    },
+    {
+      teacher: "高野",
+      name: "体育"
+    }
+  ];
+  private students: Student[] = [
+    {
+      id: 1,
+      name: "青山 采未",
+      status: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    },
+    {
+      id: 1,
+      name: "青山 采未",
+      status: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    }
+  ];
   constructor(props: AttendanceBookProps) {
     super(props);
     console.log(props);
   }
   public render() {
-    const { classes } = this.props;
+    const period: JSX.Element[] = [];
+    for (let i = 1; i <= this.subjects.length * 2; i++) {
+      period.push(<td>{i}</td>);
+    }
+    const subjects: JSX.Element[] = [];
+    for (const subject of this.subjects) {
+      subjects.push(
+        <td colSpan={2}>
+          <p className="name">{subject.name}</p>
+        </td>
+      );
+    }
+    const teachers: JSX.Element[] = [];
+    for (const subject of this.subjects) {
+      teachers.push(
+        <td colSpan={2}>
+          <p className="name">{subject.teacher}</p>
+        </td>
+      );
+    }
+
+    const students: JSX.Element[] = [];
+    for (const student of this.students) {
+      students.push(
+        <tr>
+          <td>{student.id}</td>
+          <td>{student.name}</td>
+          <td>欠</td>
+          <td>備</td>
+          <td />
+          <td />
+          <td />
+          <td />
+          <td />
+          <td />
+          <td />
+        </tr>
+      );
+    }
     return (
-      <div style={{ height: "100%", width: "100%", overflowY: "scroll", position: "absolute" }}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell className={classes.head}>Dessert (100g serving)</TableCell>
-              <TableCell className={classes.head} numeric={true}>
-                Calories
-              </TableCell>
-              <TableCell className={classes.head} numeric={true}>
-                Fat (g)
-              </TableCell>
-              <TableCell className={classes.head} numeric={true}>
-                Carbs (g)
-              </TableCell>
-              <TableCell className={classes.head} numeric={true}>
-                Protein (g)
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {data.map((n) => {
-              return (
-                <TableRow key={n.id}>
-                  <TableCell>{n.name}</TableCell>
-                  <TableCell numeric={true}>{n.calories}</TableCell>
-                  <TableCell numeric={true}>{n.fat}</TableCell>
-                  <TableCell numeric={true}>{n.carbs}</TableCell>
-                  <TableCell numeric={true}>{n.protein}</TableCell>
-                </TableRow>
-              );
-            })}
-          </TableBody>
-        </Table>
+      <div style={{ height: "100vh", width: "100vw", overflowY: "scroll", position: "fixed" }}>
+        <table
+          ref={(ref) => {
+            if (ref !== null) {
+              ref.border = "1";
+            }
+          }}
+        >
+          <thead>
+            <tr>
+              <td rowSpan={3} colSpan={4} />
+              <td />
+              {period}
+            </tr>
+            <tr>
+              <td>
+                <p className="name">HR</p>
+              </td>
+              {subjects}
+            </tr>
+            <tr>
+              <td>
+                <p className="name">{this.homeroomTeacher}</p>
+              </td>
+              {teachers}
+            </tr>
+          </thead>
+          <tbody>{students}</tbody>
+        </table>
       </div>
     );
   }
 }
-
-export default withStyles(styles)(AttendanceBook);
+export default AttendanceBook;
+//export default withStyles(styles)(AttendanceBook);

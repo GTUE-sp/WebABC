@@ -1,0 +1,6 @@
+.name {
+	writing-mode: vertical-rl;
+	margin: 0 auto;
+	white-space: nowrap;
+	text-orientation: upright;
+}
